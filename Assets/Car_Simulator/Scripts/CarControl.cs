@@ -69,6 +69,8 @@ public class CarControl : MonoBehaviour
         //브레이크 토크 수동
         float Brake = wheelinfo.BrakeTorque * Input.GetAxis("Brake");
 
+        Debug.Log($"[input value check] : Horizontal = {Input.GetAxis("Horizontal")} / Vertical = {Input.GetAxis("Vertical")} / Brake = {Input.GetAxis("Brake")}");
+
         //방향 담당 휠 제어
         foreach (WheelCollider wheel in wheelinfo.SteerWheel)
         {
