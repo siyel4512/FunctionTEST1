@@ -1,33 +1,15 @@
 {
-    "name": "Test_Controls",
+    "name": "Car Controller",
     "maps": [
         {
-            "name": "InputTest",
-            "id": "ef9a6fa3-a8b8-452a-afbd-0c50056acfeb",
+            "name": "Car",
+            "id": "a72092d1-91d6-4ffa-baa0-538bd3838488",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "9f63b361-1b0c-4133-a5e1-2f3757d8dd43",
+                    "id": "4691db37-8a3c-4d40-a1b4-0023085b02d1",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "17c2d64b-f434-4725-9d34-9b486ab606b7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Test",
-                    "type": "Value",
-                    "id": "883d50fd-4ab5-4bc8-ad10-53f241100cc7",
-                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -36,7 +18,7 @@
             "bindings": [
                 {
                     "name": "WASD",
-                    "id": "3c51b8a5-f1f5-4da1-a600-a7cbb84288f8",
+                    "id": "06fa82ab-4e9a-4a25-a368-6eb58c3c3df2",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -47,51 +29,51 @@
                 },
                 {
                     "name": "up",
-                    "id": "e08b0f91-dd5f-4803-8937-71b45ddc0078",
-                    "path": "<Keyboard>/w",
+                    "id": "6bf1b986-30a8-48cc-a32b-aa0233396ecc",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "5ffa0695-3f93-40c9-b615-c41ff7b83488",
-                    "path": "<Keyboard>/s",
+                    "id": "9484250f-195a-423a-85cf-f71070f8b9d2",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "087c5e62-60b2-401b-a06a-86f91a42e082",
-                    "path": "<Keyboard>/a",
+                    "id": "704536df-eed5-43e7-8896-42c885dc7f00",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "588f798b-a786-423b-9ef2-a9c633a3b364",
-                    "path": "<Keyboard>/d",
+                    "id": "b57ad1b8-1f4a-4d2f-b196-3ac34b0ea368",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Arrow",
-                    "id": "e6e2098d-7ed3-4a9b-80c0-aa2fedd5c48d",
+                    "name": "ARROW",
+                    "id": "e499e57c-6bc4-4bc3-8815-c4b1453f1bbe",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -102,77 +84,55 @@
                 },
                 {
                     "name": "up",
-                    "id": "40f08aed-ce35-4744-be10-a1808830e45f",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "87a450db-a368-4019-833b-4c3818e72a4b",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "1444770e-e75d-48bd-aefa-0ac8ef61049b",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "0ab92465-dd44-4eb1-a811-f7bc5acf90f9",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "0a1fd8aa-e6c0-4b02-8c87-9ffbcf57a63b",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "2dfa7b30-6572-4c0e-ad23-1fe1946ffa7c",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "7128271d-34fe-4940-966e-bfe5cbe339c8",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "757f27ee-a07b-4597-a299-bba8044f382f",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Test_PC",
+                    "groups": "PC_Car",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "9f4ffe2f-d76a-4b4d-95bb-fe90923edd29",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "Test_PC",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2c8396d6-e1d4-4932-88f9-c9770110c31f",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Test_PC",
-                    "action": "Test",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Test_PC",
-            "bindingGroup": "Test_PC",
+            "name": "PC_Car",
+            "bindingGroup": "PC_Car",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

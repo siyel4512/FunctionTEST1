@@ -333,6 +333,120 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1593148218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593148221}
+  - component: {fileID: 1593148220}
+  - component: {fileID: 1593148219}
+  m_Layer: 0
+  m_Name: Input Tester_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1593148219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593148218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a332742945bdb274687273ea99b88f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSendMessages: 0
+  input: {fileID: 0}
+  playerActionMap:
+    m_Name: Player
+    m_Id: 44b69cec-60c3-4cbc-8684-e10e90689fdd
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  action1:
+    m_Name: Action 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c56dfa03-6921-4e9f-bc13-d5b18de894b8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  action2:
+    m_Name: Action 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d4b6fc69-eedd-4771-916e-1c4c33b1882d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+--- !u!114 &1593148220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593148218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 93de19a93b78f88449a3102797ad382e,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f63b361-1b0c-4133-a5e1-2f3757d8dd43
+    m_ActionName: InputTest/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17c2d64b-f434-4725-9d34-9b486ab606b7
+    m_ActionName: InputTest/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 883d50fd-4ab5-4bc8-ad10-53f241100cc7
+    m_ActionName: InputTest/New action
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Test_PC
+  m_DefaultActionMap: InputTest
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &1593148221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593148218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943454860
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,12 +459,12 @@ GameObject:
   - component: {fileID: 1943454861}
   - component: {fileID: 1943454863}
   m_Layer: 0
-  m_Name: Input Tester
+  m_Name: Input Tester_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1943454861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 93de19a93b78f88449a3102797ad382e,
     type: 3}
-  m_NotificationBehavior: 1
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -376,7 +490,15 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f63b361-1b0c-4133-a5e1-2f3757d8dd43
+    m_ActionName: InputTest/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17c2d64b-f434-4725-9d34-9b486ab606b7
+    m_ActionName: InputTest/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Test_PC
   m_DefaultActionMap: InputTest
@@ -409,6 +531,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a332742945bdb274687273ea99b88f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSendMessages: 1
+  input: {fileID: 0}
+  playerActionMap:
+    m_Name: Player
+    m_Id: 737dac67-23f0-4327-92f1-7800b133659c
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  action1:
+    m_Name: Action 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1e37d523-9972-49d9-8435-a860d0200067
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  action2:
+    m_Name: Action 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7886eb22-947e-4f40-b5ec-3664f62ab9a7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -416,3 +564,4 @@ SceneRoots:
   - {fileID: 858177775}
   - {fileID: 1226717175}
   - {fileID: 1943454862}
+  - {fileID: 1593148221}
