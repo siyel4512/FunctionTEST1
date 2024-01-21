@@ -1,8 +1,8 @@
-// Âü°í : https://daekyoulibrary.tistory.com/entry/Unity-New-Input-System-2-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A1%9C-%EC%A0%9C%EC%96%B4%ED%95%98%EA%B8%B0
-// Âü°í : https://forum.unity.com/threads/new-input-system-how-to-use-the-hold-interaction.605587/page-3
-// Âü°í : https://lektion-von-erfolglosigkeit.tistory.com/233
-// Âü°í : https://velog.io/@lunetis/zero-1
-// Âü°í ¿¹Á¦ : https://github.com/lunetis/OperationZERO?tab=readme-ov-file
+// ì°¸ê³  : https://daekyoulibrary.tistory.com/entry/Unity-New-Input-System-2-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A1%9C-%EC%A0%9C%EC%96%B4%ED%95%98%EA%B8%B0
+// ì°¸ê³  : https://forum.unity.com/threads/new-input-system-how-to-use-the-hold-interaction.605587/page-3
+// ì°¸ê³  : https://lektion-von-erfolglosigkeit.tistory.com/233
+// ì°¸ê³  : https://velog.io/@lunetis/zero-1
+// ì°¸ê³  ë¸”ë¡œê·¸ : https://github.com/lunetis/OperationZERO?tab=readme-ov-file
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,29 +19,44 @@ public class InputTester : MonoBehaviour
     public InputAction action1;
     public InputAction action2;
 
+    private float moveTime;
+    public float delayTime = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
     
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    //curVec = Vector2.SmoothDamp(curVec, moveVec, ref smoothInputVelocity, smoothRatio, maxSpeed);
+    //    //Debug.Log(curVec);
 
+    //    //Debug.Log(moveVec);
 
+    //    if (moveVec != Vector2.zero)
+    //    {
+    //        moveTime += Time.deltaTime;
+    //        float t = moveTime / delayTime;
+    //        Debug.Log(Mathf.Lerp(0f, moveVec.y, t));
+    //    }
+    //    else
+    //    {
+    //        moveTime = 0;
+    //    }
+    //}
 
-    private void SmoothDamp_Move()
-    {
-        Vector2 currentValue = Vector2.SmoothDamp(curVec, moveVec, ref smoothInputVelocity, smoothRatio, maxSpeed);
-        Debug.Log(curVec);
-    }
+    public Vector2 smoothInputVelocity;
+    public Vector2 moveVec;
+    public Vector2 curVec;
+    public float smoothRatio;
+    public float maxSpeed;
 
     private void SmoothDamp_Test()
     {
-        Mathf.Lerp(, 1, );
+        
     }
 
     // Behavior "Send Messges"
@@ -49,7 +64,8 @@ public class InputTester : MonoBehaviour
     {
         if (isSendMessages)
         {
-            Debug.Log($"OnMove value : {value.Get<Vector2>()}");
+            //Debug.Log($"OnMove value : {value.Get<Vector2>()}");
+            moveVec = value.Get<Vector2>();
         }
     }
 

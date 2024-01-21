@@ -389,6 +389,12 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  delayTime: 1
+  smoothInputVelocity: {x: 0, y: 0}
+  moveVec: {x: 1, y: 1}
+  curVec: {x: 0, y: 0}
+  smoothRatio: 0
+  maxSpeed: 0
 --- !u!114 &1593148220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +563,12 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  delayTime: 1
+  smoothInputVelocity: {x: 1, y: 1}
+  moveVec: {x: 0, y: 0}
+  curVec: {x: 0, y: 0}
+  smoothRatio: 0
+  maxSpeed: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

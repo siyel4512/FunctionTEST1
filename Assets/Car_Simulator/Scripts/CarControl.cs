@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// https://m.blog.naver.com/wjoh0315/222060462685
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class CarControl : MonoBehaviour
 
     [Header("Component")]
     public Rigidbody rigid;
+    public InputCarControl inputCarControl;
 
     CameraType cameraType = CameraType.thirdPerson;
     SoundType soundSelected;
@@ -25,6 +27,8 @@ public class CarControl : MonoBehaviour
     {
         driftEffectClone = new GameObject[wheelinfo.AllWheel.Length];
         WheelCenterSetting();
+
+        inputCarControl = GetComponent<InputCarControl>();
     }
 
     void FixedUpdate()
@@ -63,13 +67,16 @@ public class CarControl : MonoBehaviour
     void WheelControl()
     {
         //휠 각도
-        float rot = wheelinfo.SteerRot * Input.GetAxis("Horizontal");
+        //float rot = wheelinfo.SteerRot * Input.GetAxis("Horizontal");
+        float rot = wheelinfo.SteerRot * inputCarControl.Rotation;
         //휠 토크
-        float Torque = wheelinfo.MotorTorque * Input.GetAxis("Vertical");
+        //float Torque = wheelinfo.MotorTorque * Input.GetAxis("Vertical");
+        float Torque = wheelinfo.MotorTorque * inputCarControl.Torque;
         //브레이크 토크 수동
-        float Brake = wheelinfo.BrakeTorque * Input.GetAxis("Brake");
+        //float Brake = wheelinfo.BrakeTorque * Input.GetAxis("Brake");
+        float Brake = wheelinfo.BrakeTorque * inputCarControl.Brake;
 
-        //Debug.Log($"[input value check] : Horizontal = {Input.GetAxis("Horizontal")} / Vertical = {Input.GetAxis("Vertical")} / Brake = {Input.GetAxis("Brake")}");
+        Debug.Log($"[input value check] : Horizontal = {Input.GetAxis("Horizontal")} / Vertical = {Input.GetAxis("Vertical")} / Brake = {Input.GetAxis("Brake")}");
 
         //방향 담당 휠 제어
         foreach (WheelCollider wheel in wheelinfo.SteerWheel)
@@ -92,7 +99,8 @@ public class CarControl : MonoBehaviour
     void DriftControl()
     {
         float FrictionAverage = 0f;
-        float DriftForceF = (Input.GetAxis("Drift") * wheelinfo.driftF_Forward * Input.GetAxis("Vertical")) / rigid.mass;
+        //float DriftForceF = (Input.GetAxis("Drift") * wheelinfo.driftF_Forward * Input.GetAxis("Vertical")) / rigid.mass;
+        float DriftForceF = (inputCarControl.Drift * wheelinfo.driftF_Forward * inputCarControl.Torque) / rigid.mass;
 
         Debug.Log($"[input value check] : DriftForce = {Input.GetAxis("Drift")}");
 
@@ -106,10 +114,14 @@ public class CarControl : MonoBehaviour
             wheelCurveForward = wheel.forwardFriction;
             wheelCurveSide = wheel.sidewaysFriction;
 
-            wheelCurveForward.extremumValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + Input.GetAxis("Drift"))) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
-            wheelCurveForward.asymptoteValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + Input.GetAxis("Drift"))) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
-            wheelCurveSide.extremumValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + Input.GetAxis("Drift") * (1 + Input.GetAxis("Horizontal")))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
-            wheelCurveSide.asymptoteValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + Input.GetAxis("Drift") * (1 + Input.GetAxis("Horizontal")))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
+            //wheelCurveForward.extremumValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + Input.GetAxis("Drift"))) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
+            //wheelCurveForward.asymptoteValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + Input.GetAxis("Drift"))) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
+            //wheelCurveSide.extremumValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + Input.GetAxis("Drift") * (1 + Input.GetAxis("Horizontal")))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
+            //wheelCurveSide.asymptoteValue = Input.GetButton("Drift") ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + Input.GetAxis("Drift") * (1 + Input.GetAxis("Horizontal")))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
+            wheelCurveForward.extremumValue = inputCarControl.isDrift ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + inputCarControl.Drift)) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
+            wheelCurveForward.asymptoteValue = inputCarControl.isDrift ? Mathf.Clamp((wheelinfo.frictionStanForward / (1 + inputCarControl.Drift)) / (1 + rigid.velocity.magnitude), 0.35f, 3) : 2;
+            wheelCurveSide.extremumValue = inputCarControl.isDrift ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + inputCarControl.Drift * (1 + inputCarControl.Rotation))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
+            wheelCurveSide.asymptoteValue = inputCarControl.isDrift ? Mathf.Clamp((wheelinfo.frictionStanSide / (1 + inputCarControl.Drift * (1 + inputCarControl.Rotation))) / (1 + rigid.velocity.magnitude), 0.4f, 3) : 2;
 
             wheel.forwardFriction = wheelCurveForward;
             wheel.sidewaysFriction = wheelCurveSide;
@@ -175,8 +187,10 @@ public class CarControl : MonoBehaviour
 
     void SwitchCameraView()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        //if (Input.GetKeyDown(KeyCode.Q))
+        if (inputCarControl.isChangeCameraView)
         {
+            inputCarControl.isChangeCameraView = false;
             switch (cameraType)
             {
                 case CameraType.firstPerson:
